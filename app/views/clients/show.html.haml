@@ -1,0 +1,111 @@
+- content_for :title do
+  取引先詳細
+
+- content_for :breadcrumb do
+  %li
+    =link_to :root do
+      ホーム
+  %li.separator
+    %i.icon-angle-right
+  %li
+    =link_to clients_path do
+      取引先
+  %li.separator
+    %i.icon-angle-right
+  %li.active
+    取引先詳細
+
+- if notice
+  .col-sm-12
+    %p#notice.alert.alert-info= notice
+
+.col-sm-12
+  .box
+    .box-header.blue-background
+      .title 取引先情報
+    .box-content.box-padding
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :name
+        .col-sm-9
+          = @client.name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :abbr
+        .col-sm-9
+          = @client.abbr
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :code
+        .col-sm-9
+          = @client.code
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :full_name
+        .col-sm-9
+          = @client.full_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :full_name_kana
+        .col-sm-9
+          = @client.full_name_kana
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :zipcode
+        .col-sm-9
+          = @client.zipcode
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :pref_name
+        .col-sm-9
+          = @client.pref_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :address_city
+        .col-sm-9
+          = @client.address_city
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :address_extra
+        .col-sm-9
+          = @client.address_extra
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :sales_person_name
+        .col-sm-9
+          = @client.sales_person_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :sales_person_email
+        .col-sm-9
+          = @client.sales_person_email
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :created_at
+        .col-sm-9
+          = l @client.created_at
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :updated_at
+        .col-sm-9
+          = l @client.updated_at
+
+.col-sm-12
+  .form-actions
+    .row
+      .col-sm-8.col-sm-offset-2
+        = link_to '編集', edit_client_path(@client), class: 'btn btn-primary'
+        = link_to '戻る', clients_path, class: 'btn'

@@ -1,0 +1,93 @@
+.col-sm-12
+  .box
+    .box-header.blue-background
+      .title 仕入先情報
+    .box-content.box-padding
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :code
+        .col-sm-9
+          = @supplire.code
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :name
+        .col-sm-9
+          = @supplire.name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :short_name
+        .col-sm-9
+          = @supplire.short_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :kana
+        .col-sm-9
+          = @supplire.kana
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :postal_code
+        .col-sm-9
+          = @supplire.postal_code
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :address1
+        .col-sm-9
+          = @supplire.address1
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :address2
+        .col-sm-9
+          = @supplire.address2
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :address3
+        .col-sm-9
+          = @supplire.address3
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :tel
+        .col-sm-9
+          = @supplire.tel
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :fax
+        .col-sm-9
+          = @supplire.fax
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :url
+        .col-sm-9
+          = @supplire.url
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :pic_name
+        .col-sm-9
+          = @supplire.pic_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Supplire.human_attribute_name :pic_email
+        .col-sm-9
+          = @supplire.pic_email
+
+  = form_for @supplire, html: {class: 'form-horizontal', role: 'form'} do |f|
+    - %i|code name short_name kana postal_code address1 address2 address3 fax url pic_name pic_email price_ratio|.each do |column|
+      = f.hidden_field column
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '保存', class: 'btn btn-primary'
+          = link_to '戻る', @supplire.new_record? ? new_supplire_path : edit_supplire_path, class: 'btn', onclick: "window.history.back();"

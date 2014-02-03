@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title oksales
+    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag    "application-flatty-1", media: "all"
+    = stylesheet_link_tag    "application-flatty-bootstrap", media: "all"
+    = stylesheet_link_tag    "application-flatty-2", media: "all"
+    = stylesheet_link_tag    "application-flatty-3", media: "all"
+    = stylesheet_link_tag    "application-flatty-4", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body.contrast-red
+    = render 'layouts/header'
+    = render 'layouts/sidenav'
+
+    %section#content
+      .container
+        #content-wrapper.row
+          .col-xs-12
+            / page header container
+            .row
+              .col-sm-12
+                .page-header
+                  / page title
+                  %h1.pull-left
+                    %i.icon-th
+                    %span= yield :title
+                  / breadcrumbs
+                  .pull-right
+                    %ul.breadcrumb= yield :breadcrumb
+              / content of page
+              = yield
+
+        = render 'layouts/footer'
+
+    /[if lt IE 9]
+      = javascript_include_tag "ie8"

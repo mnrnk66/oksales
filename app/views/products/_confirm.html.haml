@@ -1,0 +1,117 @@
+.col-sm-12
+  .box
+    .box-header.blue-background
+      .title 商品情報
+    .box-content.box-padding
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :code
+        .col-sm-9
+          = @product.code
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :name
+        .col-sm-9
+          = @product.name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :short_name
+        .col-sm-9
+          = @product.short_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :kana
+        .col-sm-9
+          = @product.kana
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :product_group_id
+        .col-sm-9
+          = @product.product_group_id
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :price
+        .col-sm-9
+          = @product.price
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :cost_price
+        .col-sm-9
+          = @product.cost_price
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :tax_type
+        .col-sm-9
+          = @product.tax_type
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :tax_class_id
+        .col-sm-9
+          = @product.tax_class_id
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :district
+        .col-sm-9
+          = @product.district
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :supplire_id
+        .col-sm-9
+          = @product.supplire_id
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :unit_id
+        .col-sm-9
+          = @product.unit_id
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :qty_per_box
+        .col-sm-9
+          = @product.qty_per_box
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :price_type
+        .col-sm-9
+          = @product.price_type
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :item_of_matrixlist
+        .col-sm-9
+          = @product.item_of_matrixlist
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :valid_from
+        .col-sm-9
+          = @product.valid_from
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Product.human_attribute_name :valid_until
+        .col-sm-9
+          = @product.valid_until
+
+  = form_for @product, html: {class: 'form-horizontal', role: 'form'} do |f|
+    - %i|code name short_name kana product_group_id price cost_price tax_type tax_class_id district  unit_id qty_per_box price_type item_of_matrixlist valid_from valid_until|.each do |column|
+      = f.hidden_field column
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '保存', class: 'btn btn-primary'
+          = link_to '戻る', @product.new_record? ? new_product_path : edit_product_path, class: 'btn', onclick: "window.history.back();"

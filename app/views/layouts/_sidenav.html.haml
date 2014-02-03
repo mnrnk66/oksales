@@ -1,0 +1,112 @@
+#wrapper
+  #main-nav-bg
+  %nav#main-nav
+    .navigation
+      / navigation items
+      %ul.nav.nav-stacked
+        %li
+          = link_to :root do
+            %i.icon-dashboard
+            %span ホーム
+        / %li.active
+        %li
+          = link_to clients_path do
+            %i.icon-dashboard
+            %span 取引先情報（サンプル）
+        / single navigation item
+        %li
+          = link_to '#', class: 'dropdown-collapse' do
+            %i.icon-dashboard
+            %span マスター管理
+            %i.icon-angle-down.angle-down
+          %ul.nav.nav-stacked
+            %li
+              = link_to supplires_path do
+                %i.icon-caret-right
+                %span 仕入先情報
+            %li
+              = link_to products_path do
+                %i.icon-caret-right
+                %span 商品情報
+        / 受注・売上
+        %li
+          = link_to '#', class: 'dropdown-collapse' do
+            %i.icon-dashboard
+            %span 受注・売上
+            %i.icon-angle-down.angle-down
+          %ul.nav.nav-stacked
+            %li
+              = link_to '#' do
+                %i.icon-caret-right
+                %span 受注データ取込み（仮）
+            %li
+              = link_to '#' do
+                %i.icon-caret-right
+                %span 売上データ入力（仮）
+        / 請求・入金
+        %li
+          = link_to '#', class: 'dropdown-collapse' do
+            %i.icon-dashboard
+            %span 請求・入金
+            %i.icon-angle-down.angle-down
+          %ul.nav.nav-stacked
+            %li
+              = link_to '#' do
+                %i.icon-caret-right
+                %span 入金入力（仮）
+            %li
+              = link_to '#' do
+                %i.icon-caret-right
+                %span 請求締指示（仮）
+        / 導入
+        %li
+          = link_to '#', class: 'dropdown-collapse' do
+            %i.icon-dashboard
+            %span 導入
+            %i.icon-angle-down.angle-down
+          %ul.nav.nav-stacked
+            %li
+              = link_to units_path do
+                %i.icon-caret-right
+                %span 単位情報
+            %li
+              = link_to '#' do
+                %i.icon-caret-right
+                %span 消費税情報
+        %li
+          = link_to '#' do
+            %i.icon-dashboard
+            %span サイドナビサンプル
+        / four level dropdown
+        %li
+          = link_to '#', class: 'dropdown-collapse' do
+            %i.icon-folder-open-alt
+            %span ドロップダウンサンプル
+            %i.icon-angle-down.angle-down
+          %ul.nav.nav-stacked
+            %li
+              = link_to '#', class: 'dropdown-collapse' do
+                %i.icon-caret-right
+                %span レベル2
+                %i.icon-angle-down.angle-down
+            %li
+              = link_to '#', class: 'dropdown-collapse' do
+                %i.icon-caret-right
+                %span レベル2
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  = link_to '#', class: 'dropdown-collapse' do
+                    %i.icon-caret-right
+                    %span レベル3
+                    %i.icon-angle-down.angle-down
+                  %ul.nav.nav-stacked
+                    %li
+                      = link_to '#' do
+                        %i.icon-caret-right
+                        %span レベル4-1
+                    %li
+                      = link_to '#' do
+                        %i.icon-caret-right
+                        %span レベル4-2
+

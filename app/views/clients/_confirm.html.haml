@@ -1,0 +1,81 @@
+.col-sm-12
+  .box
+    .box-header.blue-background
+      .title 取引先情報
+    .box-content.box-padding
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :name
+        .col-sm-9
+          = @client.name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :abbr
+        .col-sm-9
+          = @client.abbr
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :code
+        .col-sm-9
+          = @client.code
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :full_name
+        .col-sm-9
+          = @client.full_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :full_name_kana
+        .col-sm-9
+          = @client.full_name_kana
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :zipcode
+        .col-sm-9
+          = @client.zipcode
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :pref_name
+        .col-sm-9
+          = @client.pref_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :address_city
+        .col-sm-9
+          = @client.address_city
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :address_extra
+        .col-sm-9
+          = @client.address_extra
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :sales_person_name
+        .col-sm-9
+          = @client.sales_person_name
+      .row
+        .col-sm-3.item-name
+          %p
+            %b= Client.human_attribute_name :sales_person_email
+        .col-sm-9
+          = @client.sales_person_email
+
+  = form_for @client, html: {class: 'form-horizontal', role: 'form'} do |f|
+    - %i|name abbr code full_name full_name_kana zipcode pref_name address_city address_extra sales_person_name sales_person_email|.each do |column|
+      = f.hidden_field column
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '保存', class: 'btn btn-primary'
+          = link_to '戻る', @client.new_record? ? new_client_path : edit_client_path, class: 'btn', onclick: "window.history.back();"

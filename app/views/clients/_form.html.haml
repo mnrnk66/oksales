@@ -1,0 +1,72 @@
+= form_for @client, url: @client.new_record? ? confirm_create_clients_path : confirm_update_client_path, html: {class: 'form-horizontal', role: 'form'} do |f|
+  - if @client.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul
+        - @client.errors.full_messages.each do |msg|
+          %li= msg
+  .box
+    .box-header.blue-background
+      .title 取引先情報
+    .box-content.box-padding
+      .form-group
+        = f.label :name, class: 'control-label col-sm-3' do
+          = Client.model_name.human
+          %span.required_mark *
+        .col-sm-8
+          = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :abbr, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :abbr, class: 'form-control'
+
+      .form-group
+        = f.label :code, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :code, class: 'form-control'
+      
+      .form-group
+        = f.label :full_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :full_name, class: 'form-control'
+
+      .form-group
+        = f.label :full_name_kana, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :full_name_kana, class: 'form-control'
+
+      .form-group
+        = f.label :zipcode, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :zipcode, class: 'form-control'
+
+      .form-group
+        = f.label :pref_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :pref_name, class: 'form-control'
+
+      .form-group
+        = f.label :address_city, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :address_city, class: 'form-control'
+
+      .form-group
+        = f.label :address_extra, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :address_extra, class: 'form-control'
+
+      .form-group
+        = f.label :sales_person_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :sales_person_name, class: 'form-control'
+
+      .form-group
+        = f.label :sales_person_email, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :sales_person_email, class: 'form-control'
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '確認', class: 'btn btn-primary'
+          = link_to '戻る', clients_path, class: 'btn btn-defalut'

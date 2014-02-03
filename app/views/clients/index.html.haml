@@ -1,0 +1,70 @@
+- content_for :title do
+  取引先情報
+
+- content_for :breadcrumb do
+  %li
+    =link_to :root do
+      ホーム
+  %li.separator
+    %i.icon-angle-right
+  %li.active
+    取引先情報
+
+.col-sm-12
+  .box
+    .box-content.box-padding
+      = form_for @client_search_form, url: clients_path, html: {method: :get, role: 'form'} do |f|
+        .row
+          .col-sm-4
+            .form-group
+              = f.label :name, class: 'control-label'
+              = f.text_field :name, class: 'form-control'
+          .col-sm-4
+            .form-group
+              = f.label :full_name_kana, class: 'control-label'
+              = f.text_field :full_name_kana, class: 'form-control'
+          .col-sm-4
+            .form-group
+              = f.label :code, class: 'control-label'
+              = f.text_field :code, class: 'form-control'
+        .row
+          .col-sm-12
+            = button_tag type: 'submit', class: 'btn' do
+              <i class="icon-search"></i>検索
+
+.col-sm-12
+  .box
+    .box-content.box-padding
+      = link_to '<i class="icon-plus"></i>新しい取引先を登録'.html_safe, new_client_path, class: 'btn'
+
+.col-sm-12
+  .box
+    .box-content.box-no-padding{style: 'border:none;'}
+      .box.bordered-box.blue-border{style: "margin-bottom:0;"}
+        .box-header.blue-background
+          .title 取引先一覧
+      %table.table.table-bordered
+        %tr
+          %th.col-sm-3= Client.human_attribute_name :name
+          %th.col-sm-3= Client.human_attribute_name :full_name_kana
+          %th.col-sm-2= Client.human_attribute_name :code
+          %th.col-sm-1 詳細
+          %th.col-sm-1 編集
+          %th.col-sm-1 削除
+
+        - @clients.each do |client|
+          %tr
+            %td= client.name
+            %td= client.full_name_kana
+            %td= client.code
+            / %td= link_to '<i class="icon-large icon-file"></i>'.html_safe, client_path(client)
+            %td
+              =link_to client_path(client) do
+                %i.icon-large.icon-file"
+            %td
+              = link_to edit_client_path(client) do
+                %i.icon-large.icon-edit
+            %td
+              = link_to client, :method => :delete, :data => { :confirm => t('message.delete_confirm') } do
+                %i.icon-large.icon-trash
+

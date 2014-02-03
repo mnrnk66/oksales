@@ -1,0 +1,19 @@
+- content_for :title do
+  商品を編集
+
+- content_for :breadcrumb do
+  %li
+    =link_to :root do
+      ホーム
+  %li.separator
+    %i.icon-angle-right
+  %li
+    =link_to products_path do
+      商品情報
+  %li.separator
+    %i.icon-angle-right
+  %li.active
+    商品を編集
+
+.col-sm-12
+  = render 'form'

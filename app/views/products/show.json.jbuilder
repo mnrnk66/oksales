@@ -1,0 +1,1 @@
+json.extract! @product, :id, :code, :name, :short_name, :kana, :product_group_id, :price, :cost_price, :tax_type, :tax_class_id, :district, :supplier_id, :unit_id, :qty_per_box, :price_type, :tem_of_matrixlist, :valid_from, :valid_until, :created_at, :updated_at

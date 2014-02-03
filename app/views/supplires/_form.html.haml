@@ -1,0 +1,90 @@
+= form_for @supplire, url: @supplire.new_record? ? confirm_create_supplires_path : confirm_update_supplire_path, html: {class: 'form-horizontal', role: 'form'} do |f|
+  - if @supplire.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul
+        - @supplire.errors.full_messages.each do |msg|
+          %li= msg
+  .box
+    .box-header.blue-background
+      .title 仕入先情報
+    .box-content.box-padding
+      .form-group
+        = f.label :code, class: 'control-label col-sm-3' do
+          = Supplire.human_attribute_name :code
+          %span.required_mark *
+        .col-sm-8
+          = f.text_field :code, class: 'form-control'
+      
+      .form-group
+        = f.label :name, class: 'control-label col-sm-3' do
+          = Supplire.human_attribute_name :name
+          %span.required_mark *
+        .col-sm-8
+          = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :short_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :short_name, class: 'form-control'
+
+      .form-group
+        = f.label :kana, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :kana, class: 'form-control'
+
+      .form-group
+        = f.label :postal_code, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :postal_code, class: 'form-control'
+
+      .form-group
+        = f.label :address1, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :address1, class: 'form-control'
+
+      .form-group
+        = f.label :address2, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :address2, class: 'form-control'
+
+      .form-group
+        = f.label :address3, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :address3, class: 'form-control'
+
+      .form-group
+        = f.label :tel, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :tel, class: 'form-control'
+
+      .form-group
+        = f.label :fax, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :fax, class: 'form-control'
+
+      .form-group
+        = f.label :url, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :url, class: 'form-control'
+
+      .form-group
+        = f.label :pic_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :pic_name, class: 'form-control'
+
+      .form-group
+        = f.label :pic_email, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :pic_email, class: 'form-control'
+
+      .form-group
+        = f.label :price_ratio, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.number_field :price_ratio, class: 'form-control'
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '確認', class: 'btn btn-primary'
+          = link_to '戻る', supplires_path, class: 'btn btn-defalut'
+

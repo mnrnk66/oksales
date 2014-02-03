@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @unit.code
+%p
+  %b Name:
+  = @unit.name
+%p
+  %b Create user:
+  = @unit.create_user_id
+%p
+  %b Update user:
+  = @unit.update_user_id
+
+= link_to 'Edit', edit_unit_path(@unit)
+\|
+= link_to 'Back', units_path

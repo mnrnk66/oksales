@@ -1,0 +1,18 @@
+- content_for :title do
+  仕入先を編集（確認）
+
+- content_for :breadcrumb do
+  %li
+    =link_to :root do
+      ホーム
+  %li.separator
+    %i.icon-angle-right
+  %li
+    =link_to supplires_path do
+      仕入先情報
+  %li.separator
+    %i.icon-angle-right
+  %li.active
+    仕入先を編集（確認）
+
+= render 'confirm'

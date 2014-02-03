@@ -1,0 +1,105 @@
+= form_for @product, url: @product.new_record? ? confirm_create_products_path : confirm_update_product_path, html: {class: 'form-horizontal', role: 'form'} do |f|
+  - if @product.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+  .box
+    .box-header.blue-background
+      .title 商品情報
+    .box-content.box-padding
+      .form-group
+        = f.label :code, class: 'control-label col-sm-3' do
+          = Product.human_attribute_name :code
+          %span.required_mark *
+        .col-sm-8
+          = f.text_field :code, class: 'form-control'
+      
+      .form-group
+        = f.label :name, class: 'control-label col-sm-3' do
+          = Product.human_attribute_name :name
+          %span.required_mark *
+        .col-sm-8
+          = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :short_name, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :short_name, class: 'form-control'
+
+      .form-group
+        = f.label :kana, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :kana, class: 'form-control'
+
+      .form-group
+        = f.label :product_group_id, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :product_group_id, class: 'form-control'
+
+      .form-group
+        = f.label :price, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :price, class: 'form-control'
+
+      .form-group
+        = f.label :cost_price, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :cost_price, class: 'form-control'
+
+      .form-group
+        = f.label :tax_type, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :tax_type, class: 'form-control'
+
+      .form-group
+        = f.label :tax_class_id, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :tax_class_id, class: 'form-control'
+
+      .form-group
+        = f.label :district, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :district, class: 'form-control'
+
+      .form-group
+        = f.label :supplire_id, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :supplire_id, class: 'form-control'
+
+      .form-group
+        = f.label :unit_id, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :unit_id, class: 'form-control'
+
+      .form-group
+        = f.label :qty_per_box, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :qty_per_box, class: 'form-control'
+
+      .form-group
+        = f.label :price_type, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :price_type, class: 'form-control'
+
+      .form-group
+        = f.label :item_of_matrixlist, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.text_field :item_of_matrixlist, class: 'form-control'
+
+      .form-group
+        = f.label :valid_from, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.date_select:valid_from, class: 'form-control'
+          
+      .form-group
+        = f.label :valid_until, class: 'control-label col-sm-3'
+        .col-sm-8
+          = f.date_select :valid_until, class: 'form-control'
+
+    .form-actions
+      .row
+        .col-sm-8.col-sm-offset-3
+          = f.submit '確認', class: 'btn btn-primary'
+          = link_to '戻る', products_path, class: 'btn btn-defalut'
+
